@@ -13,7 +13,7 @@ export default function MyNavbar() {
                     <Nav className="mr-auto">
                         <Nav.Link href="#home">FAQs</Nav.Link>
                         <Nav.Link href="#link">Nuestro equipo</Nav.Link>
-                        <NavDropdown title="Menu" id="basic-nav-dropdown">
+                        <NavDropdown title="Nuestro producto" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Alarma</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Precios</NavDropdown.Item>
                             <NavDropdown.Divider />
