@@ -11,10 +11,13 @@ import InfoPanel from './components/InfoPanel';
 
 ReactDOM.render(
   <>
-    <MyNavbar/>
-    <MainCarousel/>
-    <InfoPanel tittle="Quienes somos?"/>
-    <Footer/>
+    <MyNavbar />
+    <MainCarousel />
+    <InfoPanel
+      tittle="Quienes somos?"
+      description="dr tcfdl uiqwdhawydug a sduyhqwiauiasdasdvwqeeqwhje qw hjasdbkj hgjk"
+    />
+    <Footer />
   </>
   ,
   document.getElementById('root')
