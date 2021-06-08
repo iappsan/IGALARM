@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+import './css/index.css';
+import './css/bootstrap.min.css'
 
 import MyNavbar from './components/MyNavbar';
 import Footer from './components/Footer';

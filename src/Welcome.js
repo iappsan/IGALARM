@@ -8,7 +8,7 @@ export default function Welcome() {
         <>
             <MainCarousel />
             <InfoPanel
-                tittle="Quienes somos?"
+                title="Quienes somos?"
                 description="dr tcfdl uiqwdhawydug a sduyhqwiauiasdasdvwqeeqwhje qw hjasdbkj hgjk"
             />
         </>
