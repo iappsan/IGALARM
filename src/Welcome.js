@@ -15,7 +15,7 @@ export default function Welcome() {
                     accesibilidad en el sentido económico, brindar seguridad y confianza."
                 />
                 <Title
-                    title="Nuestra mision"
+                    title="Nuestra misión"
                     desc="Proteger lo más importante para ti, tu hogar, empresa, familia o bienes. Brindando un
                     sistema más económico que genere confianza y seguridad."
                 />
