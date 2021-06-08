@@ -9,10 +9,21 @@ export default function Welcome() {
         <>
             <MainCarousel />
             <Container>
-                <Title
-                    title="Quienes somos?"
-                    desc="dr tcfdl uiqwdhawydug a sduyhqwiauiasdasdvwqeeqwhje qw hjasdbkj hgjk"
+            <Title
+                    title="Nuestro objetivo"
+                    desc="Es dar a conocer otras opciones para implementar sistemas de seguridad con una mayor
+                    accesibilidad en el sentido económico, brindar seguridad y confianza."
                 />
+                <Title
+                    title="Nuestra mision"
+                    desc="Proteger lo más importante para ti, tu hogar, empresa, familia o bienes. Brindando un
+                    sistema más económico que genere confianza y seguridad."
+                />
+                <Title
+                    title="Nuestra visión"
+                    desc="Generar un sistema de confianza y seguridad que se adapte a las necesidades de nuestros clientes."
+                />  
+                
             </Container>
         </>
     )
