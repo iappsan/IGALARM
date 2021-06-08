@@ -12,8 +12,6 @@ export default function FAQs() {
                 desc="En esta sección puedes visualizar las preguntas
                 más frecuentes junto con sus respuestas"
             />
-            <br />
-            <br />
             <MyAccordion
                 question="Que le pasa a lupita?"
                 answer="No se"
