@@ -26,11 +26,34 @@ code {
 
 .NavLink {
   color          : aliceblue;
-  font-size      : x-large;
+  font-size      : medium;
   text-decoration: dotted;
 }
 
 .NavLink:hover {
+  color          : lightslategray;
+  text-decoration: none;
+}
+
+.NavLinkDark {
+  color          : lightslategray;
+  font-size      : medium;
+  text-decoration: dotted;
+}
+
+.NavLinkDark:hover {
+  color          : rgb(0, 148, 153);
+  text-decoration: none;
+}
+
+
+.MainNavLink {
+  color          : aliceblue;
+  font-size      : x-large;
+  text-decoration: dotted;
+}
+
+.MainNavLink:hover {
   color          : lightslategray;
   text-decoration: none;
 }
