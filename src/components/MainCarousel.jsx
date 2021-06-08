@@ -41,7 +41,7 @@ export default function MainCarousel() {
                     />
 
                     <Carousel.Caption>
-                        <h3>Manejo desde la web</h3>
+                        <h1>Manejo desde la web</h1>
                         <p>Ten el control desde cualquier parte del mundo, solo conectandote a internet.</p>
                     </Carousel.Caption>
                 </Carousel.Item>

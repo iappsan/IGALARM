@@ -4,6 +4,10 @@ import Container from 'react-bootstrap/Container';
 import TeamCard from './components/TeamCard';
 import Title from './components/Title';
 
+import tm1 from './img/team/Nadia.jpg';
+import tm2 from './img/team/Ian.jpg';
+import tm3 from './img/team/Andrea.jpg';
+
 export default function Team() {
     return (
         <Container>
@@ -17,7 +21,7 @@ export default function Team() {
                 <div className="row">
                     <div className="col-md-4">
                         <TeamCard
-                            imgsrc=""
+                            imgsrc={tm1}
                             alt="Nadia"
                             nombre="Nadia Escobedo"
                             descripcion="Estudiante de ESCOM, fan de los perritos y practica Taekwondo"
@@ -27,7 +31,7 @@ export default function Team() {
                     </div>
                     <div className="col-md-4">
                         <TeamCard
-                            imgsrc=""
+                            imgsrc={tm2}
                             alt="Ian"
                             nombre="Ian Sánchez"
                             descripcion="Estudiante de ESCOM, jugador de videojuegos y gusta de la comida típica mexicana"
@@ -37,9 +41,9 @@ export default function Team() {
                     </div>
                     <div className="col-md-4">
                         <TeamCard
-                            imgsrc=""
+                            imgsrc={tm3}
                             alt="Andrea"
-                            nombre="Andrea Chavez"
+                            nombre="Andrea Gil"
                             descripcion="Estudiante de ESCOM"
                             boleta="2018631471"
                             telefono="5610595243"
@@ -47,6 +51,9 @@ export default function Team() {
                     </div>
                 </div>
             </div>
+            <br />
+            <br />
+            <br />
         </Container>
     )
 }

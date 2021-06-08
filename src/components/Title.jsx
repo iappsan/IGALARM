@@ -13,7 +13,6 @@ export default function Title(props) {
             </p>
             <br />
             <br />
-            <hr />
             <br />
             <br />
         </>
