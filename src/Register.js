@@ -27,32 +27,53 @@ export default function Register() {
                                     <Form.Control type="text" placeholder="Nombre(s)" />
                                 </Col>
                             </Form.Row>
-                            <Row>
+                            <br />
+                            <Form.Row>
                                 <Col>
                                     <Form.Control type="text" placeholder="Apellido Paterno" />
                                 </Col>
                                 <Col>
                                     <Form.Control type="text" placeholder="Apellido Materno" />
                                 </Col>
-                            </Row>
+                            </Form.Row>
+                            <br />
+                            <hr />
+                            <br />
                             <Row>
                                 <Col>
                                     <Form.Control type="email" placeholder="Email" />
+                                </Col>
+                            </Row>
+                            <br />
+                            <Row>
+                                <Col>
                                     <Form.Control type="password" placeholder="Contraseña" />
+                                </Col>
+                            </Row>
+                            <br />
+                            <Row>
+                                <Col>
                                     <Form.Control type="password" placeholder="Confirmar contraseña" />
+                                </Col>
+                            </Row>
+                            <br />
+                            <Row>
+                                <Col>
                                     <Form.Control size="sm" type="text" placeholder="Código de alarma" />
+                                </Col>
+                                <Col>
+                                    <Button variant="primary" type="submit" >
+                                        Registrar
+                                    </Button>
                                 </Col>
                             </Row>
                         </Form.Group>
                     </Card.Body>
                 </Card>
-                <Button variant="primary" type="submit">
-                    Registrar
-                    </Button>
             </Form>
             <br />
             <br />
             <br />
-        </Container>
+        </Container >
     )
 }
