@@ -2,8 +2,9 @@
 Proyecto par IDS
 
 ## Cosas necesarias
-NodeJS 16.2.0
-npm install react-bootstrap bootstrap@4.6.0
+NodeJS 16.2.0\
+pls run the following command before anything\
+npm install\
 
 # Getting Started with Create React App
 
