@@ -14,6 +14,7 @@ import Team from './Team';
 import Alarm from './Alarm';
 import Prices from './Prices';
 import Contact from './Contact';
+import Register from './Register';
 import Err404 from './components/Err404';
 
 
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route path="/Alarm" component={Alarm} />
         <Route path="/Prices" component={Prices} />
         <Route path="/Contact" component={Contact} />
+        <Route path="/Register" component={Register} />
         <Route component={Err404} />
       </Switch>
       <Footer />

@@ -1,8 +1,10 @@
 import React from 'react'
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Title from './components/Title';
+import Link from 'react-router-dom/Link';
 
 function Login() {
     return (
@@ -24,9 +26,13 @@ function Login() {
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Entrar
                 </Button>
             </Form>
+            <br />
+            <br />
+            <br />
+            Si aun no tienes una cuenta, da clic <Link to="/Register"> AQUI </Link>
         </Container>
     )
 }
