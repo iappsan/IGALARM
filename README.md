@@ -4,7 +4,7 @@ Proyecto par IDS
 ## Cosas necesarias
 NodeJS 16.2.0\
 pls run the following command before anything\
-npm install\
+npm install
 
 # Getting Started with Create React App
 
