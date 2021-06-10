@@ -35,7 +35,7 @@ function Login() {
                     </Form>
                 </Card.Body>
                 <Card.Footer>
-                    <small className="text-muted">Si aun no tienes una cuenta, da clic <Link to="/Register"> AQUI </Link></small>
+                    <small className="text-muted">Si aun no tienes una cuenta, da clic <Link className='link-primary' to="/Register"> AQUÍ </Link></small>
                 </Card.Footer>
             </Card>
             <br />
