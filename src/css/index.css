@@ -1,4 +1,13 @@
 /* CSS de cards */
+.accordionLink {
+  text-decoration: none;
+  color: darkolivegreen;
+}
+
+.accordionLink:hover {
+  color: darkslategrey;
+}
+
 .teamCard {
   transition: transform 0.5s ease-in;
 }

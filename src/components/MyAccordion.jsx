@@ -9,11 +9,11 @@ export default function MyAccordion(props) {
         <Accordion>
             <Card>
                 <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                    <Accordion.Toggle as={Button} variant="link" eventKey={props.eKey} className="accordionLink">
                         {props.question}
                     </Accordion.Toggle>
                 </Card.Header>
-                <Accordion.Collapse eventKey="0">
+                <Accordion.Collapse eventKey={props.eKey}>
                     <Card.Body>{props.answer}</Card.Body>
                 </Accordion.Collapse>
             </Card>
