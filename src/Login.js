@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Form from 'react-bootstrap/Form';
-import Link from 'react-router-dom/Link';
+import {Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Title from './components/Title';

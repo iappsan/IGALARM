@@ -9,6 +9,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export default function Register() {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(e);
+    }
+
     return (
         <Container>
             <Title
@@ -17,11 +23,11 @@ export default function Register() {
                 de producto (el cual quedará vinculado permanentemente
                 a tu cuenta)."
             />
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Card className="overflow" style={{ width: '25rem', margin: 'auto auto auto auto' }}>
                     <Card.Img variant="top" src="" />
                     <Card.Body>
-                        <Form.Group controlId="formRegister">
+                        <Form.Group>
                             <Form.Row>
                                 <Col>
                                     <Form.Control type="text" placeholder="Nombre(s)" />

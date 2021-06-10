@@ -1,6 +1,5 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
-import Container from 'react-bootstrap/Container';
 
 import img1 from '../img/casa.jpg';
 import img2 from '../img/arduino.jpg';
@@ -8,7 +7,7 @@ import img3 from '../img/seguridad.jpg';
 
 export default function MainCarousel() {
     return (
-        <Container>
+        <>
             <Carousel fade>
                 <Carousel.Item>
                     <img
@@ -46,6 +45,6 @@ export default function MainCarousel() {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-        </Container>
+        </>
     )
 }
