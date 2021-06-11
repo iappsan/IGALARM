@@ -1,43 +1,48 @@
 import React from 'react'
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import {Link} from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
 
 export default function MyNavbar() {
     return (
         <>
-            <Navbar bg="dark" variant="dark" expand="md">
-                <Navbar.Brand href="#home">
-                    <Link className="MainNavLink" to="/">IGALARM</Link>
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        <Nav.Link>
-                            <Link className="NavLink" to="/Login">Iniciar sesión</Link>
-                        </Nav.Link>
-                        <Nav.Link>
-                            <Link className="NavLink" to="/FAQs">FAQs</Link>
-                        </Nav.Link>
-                        <Nav.Link>
-                            <Link className="NavLink" to="/Team">Nuestro equipo</Link>
-                        </Nav.Link>
-                        <NavDropdown title="Nuestro producto" id="basic-nav-dropdown">
-                            <Nav.Link>
-                                <Link className="NavLinkDark" to="/Alarm">Nuestra alarma</Link>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <Link className="NavLinkDark" to="/Prices">Precios</Link>
-                            </Nav.Link>
-                            <NavDropdown.Divider />
-                            <Nav.Link>
-                                <Link className="NavLinkDark" to="/Contact">Contacto</Link>
-                            </Nav.Link>
-                        </NavDropdown>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+            <nav className="navbar navbar-dark bg-dark">
+                <div className="container-fluid">
+                    <Link className="navbar-brand" to="/">IGALARM</Link>
+                    <button className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/Login">Iniciar sesión</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/FAQs">FAQs</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/Team">Nuestro equipo</Link>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="/" id="navbarScrollingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Nuestro producto
+                                </a>
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><Link className="dropdown-item" to="/Alarm">Nuestra alarma</Link></li>
+                                    <li><Link className="dropdown-item" to="/Prices">Precios</Link></li>
+                                    <li><hr className="dropdown-divider" /></li>
+                                    <li><Link className="dropdown-item" to="/Contact">Contacto</Link></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </>
     )
 }
