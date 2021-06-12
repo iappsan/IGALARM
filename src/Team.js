@@ -25,8 +25,8 @@ export default function Team() {
                             alt="Nadia"
                             nombre="Nadia Escobedo"
                             descripcion="Estudiante de ESCOM, fan de los perritos y practica Taekwondo"
-                            boleta="2020630042"
-                            telefono="5566374454"
+                            boleta="2014080391"
+                            telefono="5572028325"
                         />
                     </div>
                     <div className="col-md-4">
