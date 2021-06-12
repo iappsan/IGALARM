@@ -21,59 +21,86 @@ import Err404 from './components/Err404';
 
 const App = () => {
 
-    const [user, setUser] = useState('');
+    const [currentUser, setCurrentUser] = useState('');
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
+    const [pass2, setPass2] = useState('');
     const [emailErr, setEmailErr] = useState('');
     const [passErr, setPassErr] = useState('');
+    const [passErr2, setPassErr2] = useState('');
     const [hasAccount, setHasAccount] = useState(false);
 
     const clearInputs = () => {
         setEmail('');
         setPass('');
+        setPass2('');
     }
 
     const clearErr = () => {
         setEmailErr('');
         setPassErr('');
+        setPassErr2('');
+    }
+
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     }
 
     const handleLogin = () => {
-
         clearErr();
         fb
             .auth()
             .signInWithEmailAndPassword(email, pass)
-            .catch((err) => {
-                switch (err.code) {
+            .then((userCredential) => {
+
+            })
+            .catch((error) => {
+                switch (error.code) {
                     default:
                     case "auth/invalid-email":
                     case "auth/user-disabled":
                     case "auth/user-not-found":
-                        setEmailErr(err.message);
+                        setEmailErr(error.message);
                         break;
                     case "auth/wrong-password":
-                        setPassErr(err.message);
+                        setPassErr(error.message);
                         break;
                 }
             });
     };
 
     const handleSignUp = () => {
-
         clearErr();
-        fb
-            .auth()
-            .createUserWithEmailAndPassword(email, pass)
-            .then((userCredential) => {
-                setUser(userCredential.user);
-            })
-            .catch((error) => {
-                console.log(error.code);
-                console.log(error.message);
-            });
-        console.log(email + " " + pass)
-        
+        console.log(pass === pass2)
+        if (pass === pass2) {
+            if (validateEmail(email)) {
+                fb
+                    .auth()
+                    .createUserWithEmailAndPassword(email, pass)
+                    .then((userCredential) => {
+                        setCurrentUser(userCredential.user);
+                        console.log("Registro exitoso");
+                    })
+                    .catch((error) => {
+                        switch (error.code) {
+                            default:
+                            case "auth/invalid-email":
+                                setEmailErr("El correo es invalido");
+                                break;
+                            case "auth/weak-password":
+                                setPassErr("Introduce al menos 6 caracteres");
+                                break;
+                        }
+                    });
+            } else {
+                setEmailErr("El correo no tiene un formato válido");
+            }
+        } else {
+            setPassErr2("Las contraseñas no coinciden");
+        }
+        console.log(pass)
+        console.log(pass2)
     };
 
     const handleLogOut = () => {
@@ -82,12 +109,12 @@ const App = () => {
 
     useEffect(() => {
         const authStateListener = () => {
-            fb.auth().onAuthStateChanged((user) => {
-                if (user) {
+            fb.auth().onAuthStateChanged((currentUser) => {
+                if (currentUser) {
                     clearInputs();
-                    setUser(user);
+                    setCurrentUser(currentUser);
                 } else {
-                    setUser("");
+                    setCurrentUser("");
                 }
             });
         }
@@ -106,7 +133,7 @@ const App = () => {
                     <Route path="/Prices" component={Prices} />
                     <Route path="/Contact" component={Contact} />
                     <Route path="/Register" component={Register} />
-                    {user ? (
+                    {currentUser ? (
                         <Route path="/Login" render={
                             (props) => (
                                 <UserPage {...props}
@@ -121,13 +148,16 @@ const App = () => {
                                     email={email}
                                     setEmail={setEmail}
                                     pass={pass}
+                                    pass2={pass2}
                                     setPass={setPass}
+                                    setPass2={setPass2}
                                     handleLogin={handleLogin}
                                     handleSignUp={handleSignUp}
                                     hasAccount={hasAccount}
                                     setHasAccount={setHasAccount}
                                     emailErr={emailErr}
                                     passErr={passErr}
+                                    passErr2={passErr2}
                                 />
                             )}
                         />
