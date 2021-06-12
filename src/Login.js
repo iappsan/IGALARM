@@ -85,9 +85,9 @@ const Login = (props) => {
                             </div>
                         )}
                         {hasAccount ? (
-                            <button type="submit" onClick={handleLogin} className="btn btn-primary">Entrar</button>
+                            <button onClick={handleLogin} className="btn btn-primary">Entrar</button>
                         ) : (
-                            <button type="submit" onClick={handleSignUp} className="btn btn-secondary">Registrar</button>
+                            <button onClick={handleSignUp} className="btn btn-secondary">Registrar</button>
                         )}
                     </div>
                     <div className="card-footer text-muted">
