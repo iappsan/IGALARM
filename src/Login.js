@@ -1,43 +1,112 @@
 import React from 'react'
 
-import Form from 'react-bootstrap/Form';
-import {Link} from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Title from './components/Title';
-import Card from 'react-bootstrap/Card'
 
-function Login() {
+const Login = (props) => {
+
+    const {
+        email,
+        setEmail,
+        pass,
+        pass2,
+        setPass,
+        setPass2,
+        handleLogin,
+        handleSignUp,
+        hasAccount,
+        setHasAccount,
+        emailErr,
+        passErr,
+        passErr2
+    } = props;
+
     return (
         <Container>
-            <Title
-                title="Inicia sesión"
-                desc="Desde esta pantalla puedes iniciar sesión para poder
-                administrar todas tu o tus alarmas. Ingresa tu correo electrónico
-                y tu contraseña."
-            />
-            <Card className="overflow" style={{ width: '20rem', margin: 'auto auto' }}>
-                <Card.Img variant="top" src="" />
-                <Card.Body>
-                    <Form>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder="Email" />
-                        </Form.Group>
-
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Contraseña</Form.Label>
-                            <Form.Control type="password" placeholder="Contraseña" />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Entrar
-                        </Button>
-                    </Form>
-                </Card.Body>
-                <Card.Footer>
-                    <small className="text-muted">Si aun no tienes una cuenta, da clic <Link className='link-primary' to="/Register"> AQUÍ </Link></small>
-                </Card.Footer>
-            </Card>
+            {hasAccount ? (
+                <Title
+                    title="Inicia sesión"
+                    desc="Desde esta pantalla puedes iniciar sesión para poder
+                    administrar todas tu o tus alarmas. Ingresa tu correo electrónico
+                    y tu contraseña."
+                />
+            ) : (
+                <Title
+                    title="Registro"
+                    desc="Registrate con tu correo electrónico y una contraseña."
+                />
+            )}
+            <div className="card" style={{ width: '25rem', margin: 'auto auto' }}>
+                <form>
+                    <div className="card-body">
+                        <div className="mb-3">
+                            <label className="form-label">Email</label>
+                            <input
+                                type="email"
+                                className="form-control"
+                                autoFocus
+                                required
+                                placeholder="Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            {emailErr ?
+                                <p className="alert alert-warning">{emailErr}</p>
+                                : false}
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Contraseña</label>
+                            <input
+                                type="password"
+                                className="form-control"
+                                required
+                                placeholder="Contraseña"
+                                value={pass}
+                                onChange={(e) => setPass(e.target.value)}
+                            />
+                            {passErr ?
+                                <p className="alert alert-warning">{passErr}</p>
+                                : false}
+                        </div>
+                        {hasAccount ? true : (
+                            <div className="mb-3">
+                                <label className="form-label">Confirma la contraseña</label>
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    required
+                                    placeholder="Confirma la contraseña"
+                                    value={pass2}
+                                    onChange={(e) => setPass2(e.target.value)}
+                                />
+                                {passErr2 ?
+                                    <p className="alert alert-warning">{passErr2}</p>
+                                    : false}
+                            </div>
+                        )}
+                        {hasAccount ? (
+                            <button onClick={handleLogin} className="btn btn-primary">Entrar</button>
+                        ) : (
+                            <button onClick={handleSignUp} className="btn btn-secondary">Registrar</button>
+                        )}
+                    </div>
+                    <div className="card-footer text-muted">
+                        <small className="text-muted">
+                            {hasAccount ? (
+                                <>
+                                    <span onClick={() => setHasAccount(!hasAccount)}>
+                                        ¿No tienes una cuenta? da clic AQUÍ</span>
+                                </>
+                            ) : (
+                                <>
+                                    <span onClick={() => setHasAccount(!hasAccount)}>
+                                        ¿Ya tienes una cuenta? da clic AQUÍ</span>
+                                </>
+                            )}
+                        </small>
+                    </div>
+                </form>
+            </div>
             <br />
             <br />
             <br />
