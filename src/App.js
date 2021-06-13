@@ -30,12 +30,6 @@ const App = () => {
     const [passErr2, setPassErr2] = useState('');
     const [hasAccount, setHasAccount] = useState(false);
 
-    const clearInputs = () => {
-        setEmail('');
-        setPass('');
-        setPass2('');
-    }
-
     const clearErr = () => {
         setEmailErr('');
         setPassErr('');
@@ -48,17 +42,18 @@ const App = () => {
     }
 
 
-    const handleSignUp = () => {
+    const handleSignUp = (e) => {
+
         clearErr();
-        console.log(pass === pass2)
-        if (pass === pass2 || pass.length < 6) {
+        e.preventDefault();
+
+        if (pass === pass2 && pass.length >= 6) {
             if (validateEmail(email)) {
                 fb
                     .auth()
                     .createUserWithEmailAndPassword(email, pass)
                     .then((userCredential) => {
                         setCurrentUser(userCredential.user);
-                        console.log(userCredential.user);
                     })
                     .catch((error) => {
                         switch (error.code) {
@@ -77,8 +72,6 @@ const App = () => {
         } else {
             setPassErr2("Las contraseñas no coinciden");
         }
-        console.log(pass)
-        console.log(pass2)
     };
 
     const handleLogOut = () => {
@@ -86,46 +79,34 @@ const App = () => {
     }
 
     const handleLogin = (e) => {
+
         clearErr();
         e.preventDefault();
-        console.log(email + " " + pass)
+
         fb
             .auth()
             .signInWithEmailAndPassword(email, pass)
             .then((user) => {
-                console.log("@Hola1")
-                console.log(user)
+                console.log("prop " + user.email)
             })
-            .catch((err) => {
-                console.log(err)
-            })
-
-        // fb.auth().signInAnonymously().then(() => {
-        //     setCurrentUser("anonimo");
-        // });
-
-        // fb
-        //     .auth()
-        //     .signInWithEmailAndPassword(email, pass)
-        //     .then((data) => {
-        //         console.log(data)
-        //         console.log("@Hola2")
-        //     })
-        //     .catch((error) => {
-        //         console.log("@Hola3")
-        //         console.log(error)
-        //         switch (error.code) {
-        //             default:
-        //             case "auth/invalid-email":
-        //             case "auth/user-disabled":
-        //             case "auth/user-not-found":
-        //                 setEmailErr(error.message);
-        //                 break;
-        //             case "auth/wrong-password":
-        //                 setPassErr(error.message);
-        //                 break;
-        //         }
-        //     });
+            .catch((error) => {
+                console.log(error)
+                switch (error.code) {
+                    default:
+                    case "auth/invalid-email":
+                        setEmailErr("Correo invalido");
+                        break;
+                    case "auth/user-disabled":
+                        setEmailErr("Usuario deshabilitado");
+                        break;
+                    case "auth/user-not-found":
+                        setEmailErr("Email no registrado");
+                        break;
+                    case "auth/wrong-password":
+                        setPassErr("Contraseña incorrecta");
+                        break;
+                }
+            });
     };
 
     useEffect(() => {
@@ -133,11 +114,8 @@ const App = () => {
             .auth()
             .onAuthStateChanged((currentUser) => {
                 if (currentUser) {
-                    clearInputs();
-                    console.log(currentUser)
                     setCurrentUser(currentUser);
                 } else {
-                    console.log("Sesion no iniciada :(")
                     setCurrentUser("");
                 }
             });
