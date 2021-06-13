@@ -90,7 +90,7 @@ const Login = (props) => {
                             </div>
                         )}
                         {hasAccount ? (
-                            <button onClick={handleLogin} className="btn btn-primary">Entrar</button>
+                            <button onClick={(e) => handleLogin(e)} className="btn btn-primary">Entrar</button>
                         ) : (
                             <button onClick={handleSignUp} className="btn btn-secondary">Registrar</button>
                         )}

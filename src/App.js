@@ -51,7 +51,7 @@ const App = () => {
     const handleSignUp = () => {
         clearErr();
         console.log(pass === pass2)
-        if (pass === pass2 || pass.length<6) {
+        if (pass === pass2 || pass.length < 6) {
             if (validateEmail(email)) {
                 fb
                     .auth()
@@ -85,26 +85,47 @@ const App = () => {
         fb.auth().signOut();
     }
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
         clearErr();
+        e.preventDefault();
         console.log(email + " " + pass)
         fb
             .auth()
             .signInWithEmailAndPassword(email, pass)
-            .catch((error) => {
-                console.log(error)
-                switch (error.code) {
-                    default:
-                    case "auth/invalid-email":
-                    case "auth/user-disabled":
-                    case "auth/user-not-found":
-                        setEmailErr(error.message);
-                        break;
-                    case "auth/wrong-password":
-                        setPassErr(error.message);
-                        break;
-                }
-            });
+            .then((user) => {
+                console.log("@Hola1")
+                console.log(user)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+        // fb.auth().signInAnonymously().then(() => {
+        //     setCurrentUser("anonimo");
+        // });
+
+        // fb
+        //     .auth()
+        //     .signInWithEmailAndPassword(email, pass)
+        //     .then((data) => {
+        //         console.log(data)
+        //         console.log("@Hola2")
+        //     })
+        //     .catch((error) => {
+        //         console.log("@Hola3")
+        //         console.log(error)
+        //         switch (error.code) {
+        //             default:
+        //             case "auth/invalid-email":
+        //             case "auth/user-disabled":
+        //             case "auth/user-not-found":
+        //                 setEmailErr(error.message);
+        //                 break;
+        //             case "auth/wrong-password":
+        //                 setPassErr(error.message);
+        //                 break;
+        //         }
+        //     });
     };
 
     useEffect(() => {
