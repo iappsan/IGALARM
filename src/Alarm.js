@@ -3,6 +3,10 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Title from './components/Title';
 
+// import am1 from './img/Alarma/arduino.png';
+// import am2 from './img/Alarma/buzzer.png';
+// import am3 from './img/Alarma/sensor.png';
+
 export default function Alarm() {
     return (
         <Container>
