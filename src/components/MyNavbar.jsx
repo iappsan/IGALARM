@@ -2,7 +2,12 @@ import React from 'react'
 
 import { Link } from 'react-router-dom';
 
-export default function MyNavbar() {
+export default function MyNavbar(props) {
+
+    const {
+        currentUser
+    } = props;
+
     return (
         <>
             <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -20,7 +25,13 @@ export default function MyNavbar() {
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link active" to="/Login">Iniciar sesión</Link>
+                                <Link className="nav-link active" to="/Login">
+                                    {currentUser ? (
+                                        "Mi perfil"
+                                    ) : (
+                                        "Iniciar sesión"
+                                    )}
+                                </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/FAQs">FAQs</Link>

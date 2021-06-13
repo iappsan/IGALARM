@@ -29,6 +29,13 @@ const App = () => {
     const [passErr, setPassErr] = useState('');
     const [passErr2, setPassErr2] = useState('');
     const [hasAccount, setHasAccount] = useState(false);
+    const [alreadyConfig, setAlreadyConfig] = useState(false);
+
+    const clearInputs = () => {
+        setEmail('');
+        setPass('');
+        setPass2('');
+    }
 
     const clearErr = () => {
         setEmailErr('');
@@ -72,7 +79,7 @@ const App = () => {
         } else {
             setPassErr2("Las contraseñas no coinciden");
         }
-    };
+    }
 
     const handleLogOut = () => {
         fb.auth().signOut();
@@ -107,24 +114,33 @@ const App = () => {
                         break;
                 }
             });
-    };
+    }
 
     useEffect(() => {
         fb
             .auth()
             .onAuthStateChanged((currentUser) => {
                 if (currentUser) {
+                    clearInputs()
                     setCurrentUser(currentUser);
                 } else {
                     setCurrentUser("");
                 }
             });
-    }, []);
+    }, [])
+
+    // const handleCompleteUserData = (e) => {
+
+    //     e.preventDefault();
+    //     currentUser
+    //         .updateProfile()
+
+    // }
 
     return (
         <>
             <BrowserRouter>
-                <MyNavbar />
+                <MyNavbar currentUser={currentUser} />
                 <Switch>
                     <Route path="/" component={Welcome} exact={true} />
                     <Route path="/FAQs" component={FAQs} />
@@ -138,6 +154,9 @@ const App = () => {
                             (props) => (
                                 <UserPage {...props}
                                     handleLogOut={handleLogOut}
+                                    currentUser={currentUser}
+                                    alreadyConfig={alreadyConfig}
+                                    setAlreadyConfig={setAlreadyConfig}
                                 />
                             )}
                         />
