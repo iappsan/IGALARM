@@ -47,40 +47,18 @@ const App = () => {
         return re.test(String(email).toLowerCase());
     }
 
-    const handleLogin = () => {
-        clearErr();
-        fb
-            .auth()
-            .signInWithEmailAndPassword(email, pass)
-            .then((userCredential) => {
-
-            })
-            .catch((error) => {
-                switch (error.code) {
-                    default:
-                    case "auth/invalid-email":
-                    case "auth/user-disabled":
-                    case "auth/user-not-found":
-                        setEmailErr(error.message);
-                        break;
-                    case "auth/wrong-password":
-                        setPassErr(error.message);
-                        break;
-                }
-            });
-    };
 
     const handleSignUp = () => {
         clearErr();
         console.log(pass === pass2)
-        if (pass === pass2) {
+        if (pass === pass2 || pass.length<6) {
             if (validateEmail(email)) {
                 fb
                     .auth()
                     .createUserWithEmailAndPassword(email, pass)
                     .then((userCredential) => {
                         setCurrentUser(userCredential.user);
-                        console.log("Registro exitoso");
+                        console.log(userCredential.user);
                     })
                     .catch((error) => {
                         switch (error.code) {
@@ -107,18 +85,41 @@ const App = () => {
         fb.auth().signOut();
     }
 
+    const handleLogin = () => {
+        clearErr();
+        console.log(email + " " + pass)
+        fb
+            .auth()
+            .signInWithEmailAndPassword(email, pass)
+            .catch((error) => {
+                console.log(error)
+                switch (error.code) {
+                    default:
+                    case "auth/invalid-email":
+                    case "auth/user-disabled":
+                    case "auth/user-not-found":
+                        setEmailErr(error.message);
+                        break;
+                    case "auth/wrong-password":
+                        setPassErr(error.message);
+                        break;
+                }
+            });
+    };
+
     useEffect(() => {
-        const authStateListener = () => {
-            fb.auth().onAuthStateChanged((currentUser) => {
+        fb
+            .auth()
+            .onAuthStateChanged((currentUser) => {
                 if (currentUser) {
                     clearInputs();
+                    console.log(currentUser)
                     setCurrentUser(currentUser);
                 } else {
+                    console.log("Sesion no iniciada :(")
                     setCurrentUser("");
                 }
             });
-        }
-        authStateListener();
     }, []);
 
     return (

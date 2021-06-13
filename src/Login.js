@@ -79,6 +79,11 @@ const Login = (props) => {
                                     value={pass2}
                                     onChange={(e) => setPass2(e.target.value)}
                                 />
+                                <br />
+                                <label>Requisitos de contraseña</label>
+                                <ol>
+                                    <li>Al menos 6 caracteres</li>
+                                </ol>
                                 {passErr2 ?
                                     <p className="alert alert-warning">{passErr2}</p>
                                     : false}
