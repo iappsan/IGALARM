@@ -90,7 +90,6 @@ const App = () => {
                 console.log("prop " + user.email)
             })
             .catch((error) => {
-                console.log(error)
                 switch (error.code) {
                     default:
                     case "auth/invalid-email":
