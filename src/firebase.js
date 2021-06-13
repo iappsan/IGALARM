@@ -1,9 +1,9 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import firebase from "firebase/app";
+import "firebase/auth";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyAqlq-Ks6N9e_UQs5uW_HPvV29gvbwl-cQ",
   authDomain: "igalarm.firebaseapp.com",
   projectId: "igalarm",

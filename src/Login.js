@@ -79,13 +79,18 @@ const Login = (props) => {
                                     value={pass2}
                                     onChange={(e) => setPass2(e.target.value)}
                                 />
+                                <br />
+                                <label>Requisitos de contraseña</label>
+                                <ol>
+                                    <li>Al menos 6 caracteres</li>
+                                </ol>
                                 {passErr2 ?
                                     <p className="alert alert-warning">{passErr2}</p>
                                     : false}
                             </div>
                         )}
                         {hasAccount ? (
-                            <button onClick={handleLogin} className="btn btn-primary">Entrar</button>
+                            <button onClick={(e) => handleLogin(e)} className="btn btn-primary">Entrar</button>
                         ) : (
                             <button onClick={handleSignUp} className="btn btn-secondary">Registrar</button>
                         )}
