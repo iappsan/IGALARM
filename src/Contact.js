@@ -32,7 +32,7 @@ export default function Contact() {
                 title="Correo"
                 text="Escribenos un correo"
                 source={ct1}
-                link="https://gmai.com"
+                link="https://gmail.com"
             />
         </Container>
     )
