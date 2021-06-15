@@ -129,13 +129,14 @@ const App = () => {
             });
     }, [])
 
-    // const handleCompleteUserData = (e) => {
+    const handleCompleteUserData = (e) => {
 
-    //     e.preventDefault();
-    //     currentUser
-    //         .updateProfile()
+        e.preventDefault();
+        alert("Furmulario pa completar datos")
+        // currentUser
+        //     .updateProfile()
 
-    // }
+    }
 
     return (
         <>
@@ -157,6 +158,7 @@ const App = () => {
                                     currentUser={currentUser}
                                     alreadyConfig={alreadyConfig}
                                     setAlreadyConfig={setAlreadyConfig}
+                                    handleCompleteUserData={handleCompleteUserData}
                                 />
                             )}
                         />
