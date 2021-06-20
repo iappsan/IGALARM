@@ -116,6 +116,27 @@ const App = () => {
             });
     }
 
+    const handleResPass = (e) => {
+        clearErr();
+        e.preventDefault();
+        if (!validateEmail(email)) {
+            setEmailErr("Para recuperar tu contraseña, por favor" +
+                "introduce el email con el que te registraste")
+        } else {
+            setEmailErr("si " + email + " se encuentra registrado,"
+                + "se enviará un correo para reestablecer la contraseña")
+            fb
+                .auth()
+                .sendPasswordResetEmail(email)
+                .then(() => {
+
+                })
+                .catch((error) => {
+                    console.clear()
+                })
+        }
+    }
+
     const handleCompleteUserData = (e) => {
 
         e.preventDefault();
@@ -187,6 +208,7 @@ const App = () => {
                                     emailErr={emailErr}
                                     passErr={passErr}
                                     passErr2={passErr2}
+                                    handleResPass={handleResPass}
                                 />
                             )}
                         />

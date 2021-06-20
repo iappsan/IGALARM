@@ -13,6 +13,7 @@ const Login = (props) => {
         setPass,
         setPass2,
         handleLogin,
+        handleResPass,
         handleSignUp,
         hasAccount,
         setHasAccount,
@@ -90,7 +91,10 @@ const Login = (props) => {
                             </div>
                         )}
                         {hasAccount ? (
-                            <button onClick={(e) => handleLogin(e)} className="btn btn-primary">Entrar</button>
+                            <>
+                                <button onClick={(e) => handleLogin(e)} className="btn btn-primary">Entrar</button>
+                                <button onClick={(e) => handleResPass(e)} className="btn btn-warning">Recuperar contraseña</button>
+                            </>
                         ) : (
                             <button onClick={handleSignUp} className="btn btn-secondary">Registrar</button>
                         )}
