@@ -119,7 +119,6 @@ const App = () => {
     const handleCompleteUserData = (e) => {
 
         e.preventDefault();
-        alert("Furmulario pa completar datos"+name+" "+lname)
         currentUser
             .updateProfile({
                 displayName: name + " " + lname
