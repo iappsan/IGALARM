@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Title from './components/Title';
 import Container from 'react-bootstrap/Container';
+import fb from './firebase';
 
 const UserPage = (props) => {
 
@@ -17,9 +18,31 @@ const UserPage = (props) => {
         setLname
     } = props;
 
+
+
     if (currentUser.displayName !== null) {
         setAlreadyConfig(true)
     }
+
+    const [alarma, setAlarma] = useState({
+        email: '',
+        codProd: '',
+        addr: '',
+        geo: ''
+    })
+
+    fb
+        .firestore()
+        .collection("alarmas")
+        .get()
+        .then((data) => {
+            data.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data()}`)
+            })
+        })
+        .catch((error) => {
+            console.log(error.code)
+        })
 
     return (
         <>
@@ -75,6 +98,7 @@ const UserPage = (props) => {
                     que dice "Nueva alarma" e introducir el código de la
                     nueva alarma que compraste.
                 </p>
+
                 <div className="accordion" id="accortdionNewAlarm">
                     <div className="accordion-item">
                         <h2 className="accordion-header" id="headingOne">
@@ -89,7 +113,7 @@ const UserPage = (props) => {
                         </h2>
                         <div
                             id="collapseOne"
-                            className="accordion-collapse collapse show"
+                            className="accordion-collapse collapse"
                             aria-labelledby="headingOne"
                             data-bs-parent="#accortdionNewAlarm">
                             <div className="accordion-body">
@@ -140,6 +164,9 @@ const UserPage = (props) => {
                         </div>
                     </div>
                 </div>
+                <br />
+                <br />
+                <br />
                 <hr />
                 <button className="btn btn-secondary" onClick={handleLogOut}>
                     Cerrar sesión

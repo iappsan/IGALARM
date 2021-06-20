@@ -95,7 +95,6 @@ const App = () => {
             .auth()
             .signInWithEmailAndPassword(email, pass)
             .then((user) => {
-                console.log("prop " + user.email)
             })
             .catch((error) => {
                 switch (error.code) {
