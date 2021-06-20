@@ -10,7 +10,11 @@ const UserPage = (props) => {
         currentUser,
         alreadyConfig,
         setAlreadyConfig,
-        handleCompleteUserData
+        handleCompleteUserData,
+        name,
+        setName,
+        lname,
+        setLname
     } = props;
 
     if (currentUser.displayName !== null) {
@@ -35,11 +39,26 @@ const UserPage = (props) => {
                             <div className="row">
                                 <div className="col">
                                     <label className="form-label">Nombre</label>
-                                    <input type="email" className="form-control" autoFocus id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                    <input 
+                                        type="email" 
+                                        className="form-control" 
+                                        autoFocus 
+                                        id="exampleInputEmail1" 
+                                        aria-describedby="emailHelp" 
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        />
                                 </div>
                                 <div className="col">
                                     <label className="form-label">Primer apellido</label>
-                                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                    <input 
+                                        type="email" 
+                                        className="form-control" 
+                                        id="exampleInputEmail1" 
+                                        aria-describedby="emailHelp"
+                                        value={lname} 
+                                        onChange={(e) => setLname(e.target.value)}
+                                        />
                                 </div>
                             </div>
                             <div className="mb-3">

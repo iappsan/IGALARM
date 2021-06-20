@@ -15,7 +15,6 @@ import Team from './Team';
 import Alarm from './Alarm';
 import Prices from './Prices';
 import Contact from './Contact';
-import Register from './Register';
 import UserPage from './UserPage';
 import Err404 from './components/Err404';
 
@@ -25,6 +24,8 @@ const App = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [pass2, setPass2] = useState('');
+    const [name, setName] = useState('')
+    const [lname, setLname] = useState('')
     const [emailErr, setEmailErr] = useState('');
     const [passErr, setPassErr] = useState('');
     const [passErr2, setPassErr2] = useState('');
@@ -115,6 +116,21 @@ const App = () => {
             });
     }
 
+    const handleCompleteUserData = (e) => {
+
+        e.preventDefault();
+        alert("Furmulario pa completar datos"+name+" "+lname)
+        currentUser
+            .updateProfile({
+                displayName: name + " " + lname
+            }).then((user) => {
+                setCurrentUser(user)
+            }).catch((error) => {
+                console.log(error.code)
+            })
+
+    }
+
     useEffect(() => {
         fb
             .auth()
@@ -128,15 +144,6 @@ const App = () => {
             });
     }, [])
 
-    const handleCompleteUserData = (e) => {
-
-        e.preventDefault();
-        alert("Furmulario pa completar datos")
-        // currentUser
-        //     .updateProfile()
-
-    }
-
     return (
         <>
             <BrowserRouter>
@@ -148,7 +155,6 @@ const App = () => {
                     <Route path="/Alarm" component={Alarm} />
                     <Route path="/Prices" component={Prices} />
                     <Route path="/Contact" component={Contact} />
-                    <Route path="/Register" component={Register} />
                     {currentUser ? (
                         <Route path="/Login" render={
                             (props) => (
@@ -158,6 +164,10 @@ const App = () => {
                                     alreadyConfig={alreadyConfig}
                                     setAlreadyConfig={setAlreadyConfig}
                                     handleCompleteUserData={handleCompleteUserData}
+                                    name={name}
+                                    setName={setName}
+                                    lname={lname}
+                                    setLname={setLname}
                                 />
                             )}
                         />
