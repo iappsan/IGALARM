@@ -31,6 +31,7 @@ const App = () => {
     const [passErr2, setPassErr2] = useState('');
     const [hasAccount, setHasAccount] = useState(false);
     const [alreadyConfig, setAlreadyConfig] = useState(false);
+    const [arrayAlarm, setArrayAlarm] = useState([])
 
     const clearInputs = () => {
         setEmail('');
@@ -150,6 +151,35 @@ const App = () => {
 
     }
 
+    const saveAlarm = async (data) => {
+        await fb
+            .firestore()
+            .collection("alarmas")
+            .doc()
+            .set(data)
+            .then(() => {
+                console.log("Datos enviados")
+            })
+            .catch((error) => {
+                console.log("Datos NOOO enviados")
+                console.log(error.code)
+            })
+    }
+
+
+    const getAlarms = async () => {
+        await fb
+            .firestore()
+            .collection("alarmas")
+            .onSnapshot((querySnapshot) => {
+                const docs = [];
+                querySnapshot.forEach((doc) => {
+                    docs.push({ ...doc.data(), id: doc.id })
+                })
+                setArrayAlarm(docs)
+            })
+    }
+
     useEffect(() => {
         fb
             .auth()
@@ -164,6 +194,9 @@ const App = () => {
                     setCurrentUser("");
                 }
             });
+
+        getAlarms();
+
     }, [])
 
     return (
@@ -190,6 +223,8 @@ const App = () => {
                                     setName={setName}
                                     lname={lname}
                                     setLname={setLname}
+                                    saveAlarm={saveAlarm}
+                                    arrayAlarm={arrayAlarm}
                                 />
                             )}
                         />
