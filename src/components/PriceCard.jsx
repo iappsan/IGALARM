@@ -1,34 +1,68 @@
 import React from 'react'
 
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import Button from 'react-bootstrap/Button';
+
 
 export default function PriceCard(props) {
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+        <Card className="card overflow" style={{ width: '18rem' }}>
+            <div className="card  text-white">
+                <Card.Img variant="top" src={props.image} />
+            </div>
             <Card.Body style={{ textAlign: 'center' }}>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
                     {props.text}
                 </Card.Text>
             </Card.Body>
-            <ListGroup className="list-group-flush" style={{ textAlign: 'center' }}>
-            <ListGroupItem> {props.puerta}</ListGroupItem>
-            <ListGroupItem> {props.ventana}</ListGroupItem>
-            <ListGroupItem> {props.bocina}</ListGroupItem>
-            <ListGroupItem> {props.teclado}</ListGroupItem>
-            <ListGroupItem> {props.extras}</ListGroupItem>
-            <ListGroupItem> {props.web}</ListGroupItem>
-            <ListGroupItem> {props.precio}<br /> Pago único</ListGroupItem>
-            <ListGroupItem> {props.precios}<br /> Pago inicial 
-            <br /> <h2>+ $250 </h2>  Mensuales </ListGroupItem>
-            </ListGroup>
-            <Card.Body>
-                <Button variant="dark">Comprar</Button>
-            </Card.Body>
-        </Card>
+            <Card.Body className="d-grid gap-2 d-md-flex mx-auto">
+                
+                <p>
+                    <a className="btn btn-primary" 
+                    data-bs-toggle="collapse" 
+                    href={props.reference} 
+                    role="button" 
+                    aria-expanded="false" 
+                    aria-controls={props.id}>Ver paquete</a>
+                </p>
+                <div className="row"> 
+                    <div className="col">
+                        <div className="collapse multi-collapse" id={props.id}>
+                            <div className="card card-body">
+                                <table className="table">
+                                    <thead >
+                                        <tr>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">{props.descripcion1}</th>
+                                            <td>{props.cantidad1}</td></tr>
+                                        <tr>
+                                            <th scope="row">{props.descripcion2}</th>
+                                            <td>{props.cantidad2}</td></tr>
+                                        <tr>
+                                            <th scope="row">{props.descripcion3}</th>
+                                            <td>{props.cantidad3}</td></tr>
+                                        <tr>
+                                            <th scope="row">{props.descripcion4}</th>
+                                            <td>{props.cantidad4}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h6> {props.descripcion5} </h6>
+                                <br/>
+                                <center>
+                                <h6> {props.precio} </h6> 
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Card.Body >
+        </Card >
+
     )
 }

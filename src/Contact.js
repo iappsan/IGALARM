@@ -30,7 +30,7 @@ export default function Contact() {
             />
             <HorizontalCard 
                 title="Correo"
-                text="Escribenos un correo"
+                text="Escribenos un correo a igalarm@gmail.com"
                 source={ct1}
                 link="https://gmail.com"
             />
