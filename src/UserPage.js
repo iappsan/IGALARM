@@ -17,12 +17,24 @@ const UserPage = (props) => {
         setLname
     } = props;
 
-    const [alarma, setAlarma] = useState({
-        email: '',
+    // Posible error de lógica, revisar
+    const [initialAlarma, setInitialAlarma] = useState({
+        email: currentUser.email,
         codProd: '',
         addr: '',
+        pass: '',
         geo: ''
     })
+    // 
+    
+    const [alarma, setAlarma] = useState(initialAlarma);
+    
+    const handleInputChange = (e) => {
+        e.preventDefault();
+        
+        const {name, value} = e.target;
+        setAlarma({...alarma, [name]: value});
+    }
 
     fb
         .firestore()
