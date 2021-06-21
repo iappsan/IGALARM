@@ -10,19 +10,12 @@ const UserPage = (props) => {
         handleLogOut,
         currentUser,
         alreadyConfig,
-        setAlreadyConfig,
         handleCompleteUserData,
         name,
         setName,
         lname,
         setLname
     } = props;
-
-
-
-    if (currentUser.displayName !== null) {
-        setAlreadyConfig(true)
-    }
 
     const [alarma, setAlarma] = useState({
         email: '',

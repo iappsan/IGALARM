@@ -157,6 +157,9 @@ const App = () => {
                 if (currentUser) {
                     clearInputs()
                     setCurrentUser(currentUser);
+                    if (currentUser.displayName !== null) {
+                        setAlreadyConfig(true)
+                    }
                 } else {
                     setCurrentUser("");
                 }
