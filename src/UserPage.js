@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import Title from './components/Title';
 import Container from 'react-bootstrap/Container';
-import fb from './firebase';
 
 const UserPage = (props) => {
 
@@ -14,10 +13,11 @@ const UserPage = (props) => {
         name,
         setName,
         lname,
-        setLname
+        setLname,
+        saveAlarm,
+        arrayAlarm
     } = props;
 
-    // Posible error de lógica, revisar
     const [initialAlarma, setInitialAlarma] = useState({
         email: currentUser.email,
         codProd: '',
@@ -25,29 +25,21 @@ const UserPage = (props) => {
         pass: '',
         geo: ''
     })
-    // 
-    
+
     const [alarma, setAlarma] = useState(initialAlarma);
-    
+
     const handleInputChange = (e) => {
         e.preventDefault();
-        
-        const {name, value} = e.target;
-        setAlarma({...alarma, [name]: value});
+
+        const { name, value } = e.target;
+        setAlarma({ ...alarma, [name]: value });
     }
 
-    fb
-        .firestore()
-        .collection("alarmas")
-        .get()
-        .then((data) => {
-            data.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`)
-            })
-        })
-        .catch((error) => {
-            console.log(error.code)
-        })
+    const handleAlarmSubmit = (e) => {
+        e.preventDefault()
+        setAlarma({ ...initialAlarma })
+        saveAlarm(alarma)
+    }
 
     return (
         <>
@@ -104,6 +96,10 @@ const UserPage = (props) => {
                     nueva alarma que compraste.
                 </p>
 
+                {arrayAlarm.map((alarm) => (
+                    <h1>{alarm.addr}</h1>
+                ))}
+
                 <div className="accordion" id="accortdionNewAlarm">
                     <div className="accordion-item">
                         <h2 className="accordion-header" id="headingOne">
@@ -130,6 +126,9 @@ const UserPage = (props) => {
                                                     type="text"
                                                     className="form-control"
                                                     placeholder="Código de producto"
+                                                    name="codProd"
+                                                    value={alarma.codProd}
+                                                    onChange={handleInputChange}
                                                 />
                                             </div>
                                         </div>
@@ -139,6 +138,9 @@ const UserPage = (props) => {
                                                     type="text"
                                                     className="form-control"
                                                     placeholder="Dirección"
+                                                    name="addr"
+                                                    value={alarma.addr}
+                                                    onChange={handleInputChange}
                                                 />
                                             </div>
                                         </div>
@@ -150,6 +152,9 @@ const UserPage = (props) => {
                                                     type="text"
                                                     className="form-control"
                                                     placeholder="Contraseña de alarma"
+                                                    name="pass"
+                                                    value={alarma.pass}
+                                                    onChange={handleInputChange}
                                                 />
                                             </div>
                                         </div>
@@ -158,12 +163,19 @@ const UserPage = (props) => {
                                                 <input
                                                     type="text"
                                                     className="form-control"
-                                                    placeholder="Geo"
+                                                    placeholder="coordenadas"
+                                                    name="geo"
+                                                    value={alarma.geo}
+                                                    onChange={handleInputChange}
                                                 />
                                             </div>
                                         </div>
                                     </div>
-                                    <button className="btn btn-success">Añadir</button>
+                                    <button
+                                        className="btn btn-success"
+                                        onClick={handleAlarmSubmit}>
+                                        Añadir
+                                    </button>
                                 </form>
                             </div>
                         </div>
