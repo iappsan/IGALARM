@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 export default function PriceCard(props) {
     return (
         <Card className="card overflow" style={{ width: '18rem' }}>
-            <div class="card  text-white">
+            <div className="card  text-white">
                 <Card.Img variant="top" src={props.image} />
             </div>
             <Card.Body style={{ textAlign: 'center' }}>
@@ -15,21 +15,21 @@ export default function PriceCard(props) {
                     {props.text}
                 </Card.Text>
             </Card.Body>
-            <Card.Body class="d-grid gap-2 d-md-flex mx-auto">
+            <Card.Body className="d-grid gap-2 d-md-flex mx-auto">
                 
                 <p>
-                    <a class="btn btn-primary" 
+                    <a className="btn btn-primary" 
                     data-bs-toggle="collapse" 
                     href={props.reference} 
                     role="button" 
                     aria-expanded="false" 
                     aria-controls={props.id}>Ver paquete</a>
                 </p>
-                <div class="row"> 
-                    <div class="col">
-                        <div class="collapse multi-collapse" id={props.id}>
-                            <div class="card card-body">
-                                <table class="table">
+                <div className="row"> 
+                    <div className="col">
+                        <div className="collapse multi-collapse" id={props.id}>
+                            <div className="card card-body">
+                                <table className="table">
                                     <thead >
                                         <tr>
                                             <th scope="col">Descripcion</th>
