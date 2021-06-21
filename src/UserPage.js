@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import Title from './components/Title';
 import Container from 'react-bootstrap/Container';
+import MyAlarma from './components/MyAlarma';
 
 const UserPage = (props) => {
 
@@ -45,7 +46,7 @@ const UserPage = (props) => {
         <>
             <Container>
                 <Title
-                    title={("Bienvenido " + currentUser.email)}
+                    title={("Bienvenido " + currentUser.displayName)}
                     desc="Desde aqui puedes cambiar la configuracion de tu
                 cuenta y tambien puedes cambiar y revisar la configuracion 
                 de tus alarmas."
@@ -96,9 +97,21 @@ const UserPage = (props) => {
                     nueva alarma que compraste.
                 </p>
 
-                {arrayAlarm.map((alarm) => (
-                    <h1>{alarm.addr}</h1>
-                ))}
+                <Container>
+                    {arrayAlarm.map((doc) => {
+                        return doc.email === currentUser.email ?
+                            <MyAlarma
+                                codProd={doc.codProd}
+                                addr={doc.addr}
+                                pass={doc.pass}
+                            />
+                            : false
+                    })}
+                </Container>
+
+                <br />
+                <br />
+                <br />
 
                 <div className="accordion" id="accortdionNewAlarm">
                     <div className="accordion-item">
@@ -188,6 +201,8 @@ const UserPage = (props) => {
                 <button className="btn btn-secondary" onClick={handleLogOut}>
                     Cerrar sesión
                 </button>
+                <br />
+                <br />
             </Container>
         </>
     )
