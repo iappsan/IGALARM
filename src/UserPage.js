@@ -9,7 +9,6 @@ const UserPage = (props) => {
     const {
         handleLogOut,
         currentUser,
-        alreadyConfig,
         handleCompleteUserData,
         name,
         setName,
@@ -40,6 +39,7 @@ const UserPage = (props) => {
         e.preventDefault()
         setAlarma({ ...initialAlarma })
         saveAlarm(alarma)
+        setInitialAlarma(...initialAlarma)
     }
 
     return (
@@ -51,7 +51,7 @@ const UserPage = (props) => {
                 cuenta y tambien puedes cambiar y revisar la configuracion 
                 de tus alarmas."
                 />
-                {alreadyConfig ? (
+                {currentUser.displayName !== null ? (
                     ''
                 ) : (
                     <div className="shadow-lg p-3 mb-5 bg-body rounded">
@@ -101,6 +101,7 @@ const UserPage = (props) => {
                     {arrayAlarm.map((doc) => {
                         return doc.email === currentUser.email ?
                             <MyAlarma
+                                key={doc.id}
                                 codProd={doc.codProd}
                                 addr={doc.addr}
                                 pass={doc.pass}

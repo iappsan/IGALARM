@@ -30,7 +30,6 @@ const App = () => {
     const [passErr, setPassErr] = useState('');
     const [passErr2, setPassErr2] = useState('');
     const [hasAccount, setHasAccount] = useState(false);
-    const [alreadyConfig, setAlreadyConfig] = useState(false);
     const [arrayAlarm, setArrayAlarm] = useState([])
 
     const clearInputs = () => {
@@ -187,9 +186,6 @@ const App = () => {
                 if (currentUser) {
                     clearInputs()
                     setCurrentUser(currentUser);
-                    if (currentUser.displayName !== null) {
-                        setAlreadyConfig(true)
-                    }
                 } else {
                     setCurrentUser("");
                 }
@@ -216,8 +212,6 @@ const App = () => {
                                 <UserPage {...props}
                                     handleLogOut={handleLogOut}
                                     currentUser={currentUser}
-                                    alreadyConfig={alreadyConfig}
-                                    setAlreadyConfig={setAlreadyConfig}
                                     handleCompleteUserData={handleCompleteUserData}
                                     name={name}
                                     setName={setName}
