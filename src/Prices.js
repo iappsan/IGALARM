@@ -30,6 +30,8 @@ export default function Prices() {
                 <Col>
                     <PriceCard
                         image = {basico}
+                        reference = "#multiCollapseExample1"
+                        id = "multiCollapseExample1"
                         title = "Paquete básico"
                         titlePrices = "Paquete básico"
                         descripcion0 = "Este paquete incluye:"
@@ -41,49 +43,48 @@ export default function Prices() {
                         descripcion3 = "Bocina"
                         cantidad4 = "1" 
                         descripcion4 = "Teclado"
-                        //Precio = "$1900"
+                        precio = "Pago unico $1900"
                                               
                     />
                 </Col>
                 <Col>
-                    <PriceCard
+                <PriceCard
                         image = {pro}
                         title = "Paquete Pro"
+                        reference = "#multiCollapseExample2"
                         titlePrices = "Paquete Pro"
-                        descripcion = "Este paquete incluye:
-                        2 Sensor para puerta
-                        6 Sensores para ventanas
-                        1 Bocina
-                        1 Teclado
-                        Control desde la web
-                        Alerta a servicios de emergencia
-                        Precio $3900 pago inicial 
-                        + $250 mensuales"
+                        id = "multiCollapseExample2"
+                        descripcion0 = "El Pro paquete incluye"
+                        descripcion1 = "Sensor para puerta"
+                        cantidad1 = "2"
+                        descripcion2 = "Sensores para ventanas"
+                        cantidad2 = "6"
+                        descripcion3 = "Bocina"
+                        cantidad3 = "1"
+                        descripcion4= "Teclado"
+                        cantidad4 = "1"
+                        descripcion5 = "Control desde la web y Alerta a servicios de emergencia"
+                        precio = "Precio $5900 pago inicial + $250 mensuales"
                     />
                 </Col>
                 <Col>
                     <PriceCard
                         image = {premium}
                         title = "Paquete Premium"
+                        reference = "#multiCollapseExample3"
                         titlePrices = "Paquete Premium"
-                        descripcion1 = "El premium paquete incluye"
-                        descripcion= "Sensor para puerta"
-                        cantidad = "6"
-                        descripcion= "Sensores para ventanas"
-                        cantidad = "8"
-                        descripcion= "Bocina"
-                        cantidad = "1"
-                        descripcion= "Sensor para puerta"
-                        cantidad = "6"
-                        descripcion= "Teclado"
-                        cantidad = "1"
-                        descripcion= "Control desde la web"
-                        cantidad = ""
-                        descripcion= "Alerta a servicios de emergencia"
-                        cantidad = ""
-                        descripcion= "Precio $5900 pago inicial 
-                        + $250 mensuales"
-                        cantidad = ""
+                        id = "multiCollapseExample3"
+                        descripcion0 = "El premium paquete incluye"
+                        descripcion1 = "Sensor para puerta"
+                        cantidad1 = "6"
+                        descripcion2 = "Sensores para ventanas"
+                        cantidad2 = "8"
+                        descripcion3 = "Bocina"
+                        cantidad3 = "1"
+                        descripcion4 = "Teclado"
+                        cantidad4 = "1"
+                        descripcion5 = "Control desde la web y Alerta a servicios de emergencia"
+                        precio = "Precio $5900 pago inicial + $250 mensuales"
                     />
                 </Col>
             </Row>

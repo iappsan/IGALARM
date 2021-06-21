@@ -1,13 +1,11 @@
 import React from 'react'
 
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 
 
 export default function PriceCard(props) {
     return (
         <Card className="card overflow" style={{ width: '18rem' }}>
-
             <div class="card  text-white">
                 <Card.Img variant="top" src={props.image} />
             </div>
@@ -22,14 +20,14 @@ export default function PriceCard(props) {
                 <p>
                     <a class="btn btn-primary" 
                     data-bs-toggle="collapse" 
-                    href="#multiCollapseExample1" 
+                    href={props.reference} 
                     role="button" 
                     aria-expanded="false" 
-                    aria-controls="multiCollapseExample1">Ver paquete</a>
+                    aria-controls={props.id}>Ver paquete</a>
                 </p>
                 <div class="row"> 
                     <div class="col">
-                        <div class="collapse multi-collapse" id="multiCollapseExample1">
+                        <div class="collapse multi-collapse" id={props.id}>
                             <div class="card card-body">
                                 <table class="table">
                                     <thead >
@@ -54,7 +52,11 @@ export default function PriceCard(props) {
                                         </tr>
                                     </tbody>
                                 </table>
-                                <Button variant="dark">Comprar</Button>
+                                <h6> {props.descripcion5} </h6>
+                                <br/>
+                                <center>
+                                <h6> {props.precio} </h6> 
+                                </center>
                             </div>
                         </div>
                     </div>
