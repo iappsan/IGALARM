@@ -148,6 +148,8 @@ const App = () => {
                 console.log(error.code)
             })
 
+        e.reload();
+
     }
 
     const saveAlarm = async (data) => {
