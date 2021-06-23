@@ -202,8 +202,29 @@ const UserPage = (props) => {
                 <button className="btn btn-secondary" onClick={handleLogOut}>
                     Cerrar sesión
                 </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Activar alarma
+                </button>
                 <br />
                 <br />
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Alerta</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¡Tu alarma ha sido activada!
+                                Contacta a los servicios de emergencias
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <a type="button" class="btn btn-primary" href="https://twitter.com/spf_sspc" target="_blank">Contactar policia</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </Container>
         </>
     )
