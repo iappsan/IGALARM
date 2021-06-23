@@ -6,7 +6,6 @@ import Title from './components/Title';
 
 import tm1 from './img/team/Nadia.jpg';
 import tm2 from './img/team/Ian.jpg';
-import tm3 from './img/team/Andrea.jpg';
 
 export default function Team() {
     return (
@@ -19,7 +18,7 @@ export default function Team() {
             />
             <div className="container-fluis d-flex justify-content-center">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-6">
                         <TeamCard
                             imgsrc={tm1}
                             alt="Nadia"
@@ -29,7 +28,7 @@ export default function Team() {
                             telefono="5572028325"
                         />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-6">
                         <TeamCard
                             imgsrc={tm2}
                             alt="Ian"
@@ -37,16 +36,6 @@ export default function Team() {
                             descripcion="Estudiante de ESCOM, jugador de videojuegos y gusta de la comida típica mexicana"
                             boleta="2014090675"
                             telefono="554648233"
-                        />
-                    </div>
-                    <div className="col-md-4">
-                        <TeamCard
-                            imgsrc={tm3}
-                            alt="Andrea"
-                            nombre="Andrea Gil"
-                            descripcion="Estudiante de ESCOM"
-                            boleta="2018631471"
-                            telefono="5610595243"
                         />
                     </div>
                 </div>

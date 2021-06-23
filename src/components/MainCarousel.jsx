@@ -16,8 +16,8 @@ export default function MainCarousel() {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h1>La seguridad de tu hogar</h1>
-                        <p>Ten la tranquilidad de que todo está bien</p>
+                        <h1 className="carouselHead">La seguridad de tu hogar</h1>
+                        <p className="carouselP">Ten la tranquilidad de que todo está bien</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -28,8 +28,8 @@ export default function MainCarousel() {
                     />
 
                     <Carousel.Caption>
-                        <h1>Sistema basado en arduino</h1>
-                        <p>Circuitería de calidad a un precio accesible .</p>
+                        <h1 className="carouselHead">Sistema basado en arduino</h1>
+                        <p className="carouselP">Circuitería de calidad a un precio accesible .</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -40,8 +40,8 @@ export default function MainCarousel() {
                     />
 
                     <Carousel.Caption>
-                        <h1>Manejo desde la web</h1>
-                        <p>Ten el control desde cualquier parte del mundo, solo conectandote a internet.</p>
+                        <h1 className="carouselHead">Notifica desde la web</h1>
+                        <p className="carouselP">Ten el control desde cualquier parte del mundo, solo conectandote a internet.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
