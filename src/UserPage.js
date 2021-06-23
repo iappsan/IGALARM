@@ -220,7 +220,11 @@ const UserPage = (props) => {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <a type="button" class="btn btn-primary" href="https://twitter.com/spf_sspc" target="_blank">Contactar policia</a>
+                                <a type="button"
+                                className="btn btn-primary"
+                                rel="noopener noreferrer"
+                                href="https://twitter.com/spf_sspc" 
+                                target="_blank">Contactar policia</a>
                             </div>
                         </div>
                     </div>
