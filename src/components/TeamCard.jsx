@@ -7,7 +7,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 
 export default function TeamCard(props) {
     return (
-        <Card className="teamCard overflow" style={{ width: '14rem' }}>
+        <Card className="teamCard overflow" style={{ width: '18rem' }}>
             <Card.Img variant="top" src={props.imgsrc} />
             <Card.Body>
                 <Card.Title>{props.nombre}</Card.Title>
